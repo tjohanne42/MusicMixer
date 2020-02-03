@@ -1,6 +1,6 @@
 #ifndef MUSIC_MIXER_H
  #define MUSIC_MIXER_H
 
-#include "FTMix_lib.h"
+#include "ftmix_lib.h"
 
 #endif
