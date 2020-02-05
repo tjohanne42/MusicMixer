@@ -72,11 +72,13 @@ int				main(int argc, char **argv)
 	while (!EXIT_VALUE)
 	{
 		event.type = 0;
-		SDL_PollEvent(&event);
-		if (event.type == SDL_QUIT)
-			EXIT_VALUE = SDL_TRUE;
-		else
-			ftmix_event(event, fps, ptr);
+		while (SDL_PollEvent(&event))
+		{
+			if (event.type == SDL_QUIT)
+				EXIT_VALUE = SDL_TRUE;
+			else
+				ftmix_event(event, fps, ptr);
+		}
 		ftmix_auto_play_next();
 		current_count = SDL_GetTicks();
 		if (current_count - last_count >= 1000 / fps)
